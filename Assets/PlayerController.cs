@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Player))]
 public class PlayerController : MonoBehaviour
 {
-
+    private Player player; 
     [SerializeField]
     private float movementSpeed = 1f;
     [SerializeField]
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponentInChildren<Rigidbody2D>();
         gridYdirection = gridStart.up.normalized;
+        player = GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -40,5 +42,7 @@ public class PlayerController : MonoBehaviour
             rb.AddRelativeForce(gridYdirection * Time.deltaTime * -movementSpeed, ForceMode2D.Impulse);
         if (Input.GetKey(KeyCode.S))
             rb.AddRelativeForce(gridYdirection * Time.deltaTime * movementSpeed, ForceMode2D.Impulse);
+        if (Input.GetKeyDown(KeyCode.Space))
+            player.PlaceBomb();
     }
 }

@@ -123,25 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &31689925 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7228944780550990075, guid: 625d68cd62713954fab31d64260195c0, type: 3}
-  m_PrefabInstance: {fileID: 7228944780527690814}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &31689927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 31689925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df1412ba19aa8c647bfa77440dece80f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 50
-  gridStart: {fileID: 2098628188}
 --- !u!1 &102952909
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,32 +288,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &641116051 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7228944780094522285, guid: 625d68cd62713954fab31d64260195c0, type: 3}
-  m_PrefabInstance: {fileID: 7228944780527690814}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &641116055
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 641116051}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 15
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!1 &1839011198
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,7 +404,7 @@ MonoBehaviour:
   cellSizeX: 1.1
   cellSizeY: 1
   gridStart: {fileID: 2098628188}
-  stonePrefab: {fileID: 6511495608425576314, guid: bec683b06c69e894ca9895edc74e1c7b, type: 3}
+  stonePrefab: {fileID: 5611612710409895319, guid: bec683b06c69e894ca9895edc74e1c7b, type: 3}
 --- !u!4 &1841455169
 Transform:
   m_ObjectHideFlags: 0
@@ -504,17 +459,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 31689927, guid: 625d68cd62713954fab31d64260195c0, type: 3}
+      propertyPath: gridStart
+      value: 
+      objectReference: {fileID: 2098628188}
+    - target: {fileID: 6200948503627573690, guid: 625d68cd62713954fab31d64260195c0, type: 3}
+      propertyPath: m_Radius
+      value: 0.35
+      objectReference: {fileID: 0}
     - target: {fileID: 7228944780550990072, guid: 625d68cd62713954fab31d64260195c0, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7228944780550990072, guid: 625d68cd62713954fab31d64260195c0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.78
+      value: -3.41
       objectReference: {fileID: 0}
     - target: {fileID: 7228944780550990072, guid: 625d68cd62713954fab31d64260195c0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.35
+      value: -0.23
       objectReference: {fileID: 0}
     - target: {fileID: 7228944780550990072, guid: 625d68cd62713954fab31d64260195c0, type: 3}
       propertyPath: m_LocalPosition.z
