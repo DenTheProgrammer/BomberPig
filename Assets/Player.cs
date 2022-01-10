@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Player : ADamageableObject
 {
@@ -9,7 +10,8 @@ public class Player : ADamageableObject
 
     public void PlaceBomb()
     {
-        Instantiate(bombPrefab, gameObject.transform.position, Quaternion.identity);
+        PhotonNetwork.Instantiate(bombPrefab.name, gameObject.transform.position + new Vector3(0f, -0.1f), Quaternion.identity);
+        //Instantiate(bombPrefab, gameObject.transform.position + new Vector3(0f, -0.1f), Quaternion.identity);
     }
 
     protected override void Die()
