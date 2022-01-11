@@ -7,6 +7,12 @@ public class Player : ADamageableObject
 {
     [SerializeField]
     private GameObject bombPrefab;
+    
+
+    private void Start()
+    {
+        BombButton.onBombButtonPress += PlaceBomb;
+    }
 
     public void PlaceBomb()
     {
@@ -19,4 +25,6 @@ public class Player : ADamageableObject
         Destroy(gameObject);
         //anim, sound
     }
+
+
 }
