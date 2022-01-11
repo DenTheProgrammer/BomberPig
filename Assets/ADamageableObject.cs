@@ -14,5 +14,7 @@ public abstract class ADamageableObject : MonoBehaviour
             Die();
     }
 
-    protected abstract void Die();
+    protected virtual void Die() {
+        Destroy(gameObject);
+    }
 }

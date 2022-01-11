@@ -44,7 +44,7 @@ public class Player : ADamageableObject
 
     protected override void Die()
     {
-        Destroy(gameObject);
+        base.Die();
         //anim, sound
     }
 

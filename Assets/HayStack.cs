@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stone : ADamageableObject
+public class HayStack : ADamageableObject
 {
     protected override void Die()
     {
         base.Die();
-        //anim, sound
+        //fx
     }
 }
