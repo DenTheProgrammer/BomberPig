@@ -43,7 +43,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
             player.PlaceBomb();
         //Mobile Controls
-        rb.AddRelativeForce(new Vector3(joystick.Horizontal * movementSpeed * Time.deltaTime, 0), ForceMode2D.Impulse);
-        rb.AddRelativeForce(gridYdirection * -joystick.Vertical * movementSpeed * Time.deltaTime, ForceMode2D.Impulse);
+        /*
+         * rb.AddRelativeForce(new Vector3(joystick.Horizontal * movementSpeed * Time.deltaTime, 0), ForceMode2D.Impulse);
+         * rb.AddRelativeForce(gridYdirection * -joystick.Vertical * movementSpeed * Time.deltaTime, ForceMode2D.Impulse);
+        */
+        rb.AddRelativeForce(joystick.Direction * movementSpeed * Time.deltaTime, ForceMode2D.Impulse);//Equal speed in any direction this way
+        
     }
 }

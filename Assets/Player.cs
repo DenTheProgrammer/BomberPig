@@ -15,6 +15,11 @@ public class Player : ADamageableObject
         BombButton.onBombButtonPress += PlaceBomb;
     }
 
+    private void OnDestroy()
+    {
+        BombButton.onBombButtonPress -= PlaceBomb;
+    }
+
     public void PlaceBomb()
     {
         if (view.IsMine)
