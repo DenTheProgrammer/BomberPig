@@ -5,9 +5,9 @@ using UnityEngine;
 public abstract class ADamageableObject : MonoBehaviour
 {
     [SerializeField]
-    private int health = 1;
+    protected int health = 1;
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         health -= damage;
         if (health <= 0)

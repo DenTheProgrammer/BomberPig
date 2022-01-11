@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd17ed6eec86c74588b7409fd8ef0f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 2
   bombPrefab: {fileID: 3392386030382263090, guid: 4fa446680c84405498e72c1cdccfc1ee, type: 3}
 --- !u!58 &6200948503627573690
 CircleCollider2D:
