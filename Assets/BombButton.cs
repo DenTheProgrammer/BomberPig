@@ -9,6 +9,6 @@ public class BombButton : MonoBehaviour
 
     public static void OnBombButtonPress()
     {
-        onBombButtonPress();
+        onBombButtonPress?.Invoke();
     }
 }
