@@ -39,7 +39,8 @@ public class Player : ADamageableObject
 
     private void UpdateHealthText()
     {
-        healthText.text = this.health.ToString();
+        if (view.IsMine)
+            healthText.text = this.health.ToString();
     }
 
     protected override void Die()
