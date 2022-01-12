@@ -67,7 +67,6 @@ public class Player : ADamageableObject
                 multiplayerManager.ShowWinScreen();
             }
         }
-        //onDeathOfPlayer?.Invoke(PhotonNetwork.LocalPlayer);
         //anim, sound
     }
 

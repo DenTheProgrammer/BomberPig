@@ -64,19 +64,7 @@ public class MultiplayerManager : MonoBehaviourPunCallbacks
             Quaternion.identity);
     }
 
-    /*   [PunRPC]
-       private void ShowWinScreenTo()
-       {
-           winScreen.gameObject.SetActive(true);
-       }
-
-       [PunRPC]
-       private void ShowLoseScreenTo()
-       {
-           loseScreen.gameObject.SetActive(true);
-       }
-   */
-
+  
 
     public void ShowLoseScreen()
     {
@@ -86,35 +74,7 @@ public class MultiplayerManager : MonoBehaviourPunCallbacks
     {
         winScreen.gameObject.SetActive(true);
     }
-    /*private void OnPlayerDeath(Photon.Realtime.Player deadPlayer)
-    {
-        if (!PhotonNetwork.IsMasterClient)//only master client do this
-            return;
-
-        Debug.LogError("List of players:");
-        foreach (var player in alivePlayers)
-        {
-            Debug.LogError(player.ToString());
-        }
-        Debug.Log($"Player {deadPlayer.ToString()} is now dead");
-        view.RPC("ShowLoseScreenTo", deadPlayer);
-        alivePlayers.Remove(deadPlayer);
-        
-        Debug.Log("Alive players:");
-        foreach (var player in alivePlayers)
-        {
-            Debug.Log(player.ToString());
-        }
-        if (alivePlayers.Count == 1)// Game End
-        {
-            Photon.Realtime.Player winner = alivePlayers[0];
-            Debug.Log($"Game ended! The winner is {winner.ToString()}");
-            
-            if (PhotonNetwork.LocalPlayer.Equals(winner))
-                view.RPC("ShowWinScreenTo", winner);
-        }
-    }
-*/
+ 
     void Update()
     {
         
