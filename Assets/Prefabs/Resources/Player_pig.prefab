@@ -133,6 +133,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 50
+  directions:
+  - {fileID: -4671057516089923990, guid: 6766bea3437320f4884664af6748d091, type: 3}
+  - {fileID: 40422208409524962, guid: 6766bea3437320f4884664af6748d091, type: 3}
+  - {fileID: 1382654831687872026, guid: 6766bea3437320f4884664af6748d091, type: 3}
+  - {fileID: -5792511334730316588, guid: 6766bea3437320f4884664af6748d091, type: 3}
 --- !u!114 &31689928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +210,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
+  - {fileID: 31689927}
   - {fileID: -6345810007411544649}
   - {fileID: -4649970998242266258}
   sceneViewId: 0

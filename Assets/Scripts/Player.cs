@@ -103,6 +103,4 @@ public class Player : ADamageableObject
         }
         //anim, sound
     }
-
-
 }
