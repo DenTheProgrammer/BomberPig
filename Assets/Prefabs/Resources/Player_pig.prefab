@@ -147,6 +147,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 2
   bombPrefab: {fileID: 3392386030382263090, guid: 4fa446680c84405498e72c1cdccfc1ee, type: 3}
+  bombMaxCount: 3
+  bombRechargeTime: 2
 --- !u!58 &6200948503627573690
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -9,16 +9,25 @@ public class Player : ADamageableObject
 {
     [SerializeField]
     private GameObject bombPrefab;
+    [SerializeField]
+    private int bombMaxCount = 3;
+    private int bombCurrentCount;
+    [SerializeField]
+    private float bombRechargeTime = 2f;
+    private float lastBombPlacedTime;
     private PhotonView view;
     private TextMeshProUGUI healthText;
+    private TextMeshProUGUI bombText;
     public static event Action<Photon.Realtime.Player> onDeathOfPlayer;
 
     private void Start()
     {
+        bombCurrentCount = bombMaxCount;
         view = GetComponent<PhotonView>();
         healthText = GameObject.Find("healthText").GetComponent<TextMeshProUGUI>();
+        bombText = GameObject.Find("bombText").GetComponent<TextMeshProUGUI>();
         BombButton.onBombButtonPress += PlaceBomb;
-        UpdateHealthText();
+        UpdateText();
     }
 
     private void OnDestroy()
@@ -29,20 +38,46 @@ public class Player : ADamageableObject
     public void PlaceBomb()
     {
         if (view.IsMine)
-            PhotonNetwork.Instantiate(bombPrefab.name, gameObject.transform.position + new Vector3(0f, -0.1f), Quaternion.identity);
-        //Instantiate(bombPrefab, gameObject.transform.position + new Vector3(0f, -0.1f), Quaternion.identity);
+        {
+            if (bombCurrentCount > 0)
+            {
+                lastBombPlacedTime = Time.time;
+                PhotonNetwork.Instantiate(bombPrefab.name, gameObject.transform.position + new Vector3(0f, -0.1f), Quaternion.identity);
+                bombCurrentCount--;
+                UpdateText();
+            } 
+        }
+    }
+
+    private void CheckBombRecharge()
+    {
+        if (bombCurrentCount >= bombMaxCount) return;
+        if (Time.time - lastBombPlacedTime >= bombRechargeTime)//need to recharge one
+        {
+            bombCurrentCount++;
+            UpdateText();
+            lastBombPlacedTime = Time.time;
+        }
+    }
+
+    private void Update()
+    {
+        CheckBombRecharge();
     }
 
     public override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
-        UpdateHealthText();
+        UpdateText();
     }
 
-    private void UpdateHealthText()
+    private void UpdateText()
     {
         if (view.IsMine)
-            healthText.text = this.health.ToString();
+        {
+            healthText.text = health.ToString();
+            bombText.text = bombCurrentCount.ToString();
+        }
     }
 
     protected override void Die()
