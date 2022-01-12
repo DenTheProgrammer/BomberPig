@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using TMPro;
+using System;
 
 public class Player : ADamageableObject
 {
@@ -10,6 +11,7 @@ public class Player : ADamageableObject
     private GameObject bombPrefab;
     private PhotonView view;
     private TextMeshProUGUI healthText;
+    public static event Action<Photon.Realtime.Player> onDeathOfPlayer;
 
     private void Start()
     {
@@ -46,6 +48,26 @@ public class Player : ADamageableObject
     protected override void Die()
     {
         base.Die();
+        MultiplayerManager multiplayerManager = FindObjectOfType<MultiplayerManager>();
+        if (view.IsMine)
+        {
+            multiplayerManager.ShowLoseScreen();
+        }
+        else
+        {
+            Player[] players = FindObjectsOfType<Player>();
+            int playersAliveCount = 0;
+            foreach (var player in players)
+            {
+                if (player.health > 0)
+                    playersAliveCount++;
+            }
+            if (playersAliveCount == 1)
+            {
+                multiplayerManager.ShowWinScreen();
+            }
+        }
+        //onDeathOfPlayer?.Invoke(PhotonNetwork.LocalPlayer);
         //anim, sound
     }
 
